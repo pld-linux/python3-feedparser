@@ -6,12 +6,12 @@
 Summary:	Parse RSS and Atom feeds in Python
 Summary(pl.UTF-8):	Biblioteka Feed Parser dla Pythona
 Name:		python3-%{module}
-Version:	6.0.2
+Version:	6.0.6
 Release:	1
 License:	BSD
 Group:		Libraries/Python
 Source0:	https://github.com/kurtmckee/feedparser/archive/%{version}.tar.gz
-# Source0-md5:	bb12f347ef3d5eaa2f23cc625e8bb6fc
+# Source0-md5:	7425b4fbbd8a145033e5f872ed9958c9
 URL:		https://github.com/kurtmckee/feedparser
 BuildRequires:	python3-distribute
 BuildRequires:	python3-modules >= 1:3.6
