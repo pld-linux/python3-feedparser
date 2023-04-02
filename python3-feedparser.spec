@@ -1,10 +1,10 @@
 #
 # Conditional build:
-%bcond_with	tests	# perform "make test" (3 tests fail)
+%bcond_with	tests	# unit tests (7 tests fail)
 
 %define 	module	feedparser
 Summary:	Parse RSS and Atom feeds in Python
-Summary(pl.UTF-8):	Biblioteka Feed Parser dla Pythona
+Summary(pl.UTF-8):	Analiza źródeł RSS i Atom dla Pythona
 Name:		python3-%{module}
 Version:	6.0.10
 Release:	1
@@ -29,14 +29,21 @@ Atom 1.0, and CDF feeds. It also parses several popular extension
 modules, including Dublin Core and Apple's iTunes extensions.
 
 %description -l pl.UTF-8
-Ten pakiet umożliwia analizę źródeł RSS i Atom w Pythonie.
+Universal Feed Parser to moduł Pythona do pobierania i analizy
+syndykowanych źródeł (feedów). Obsługuje RSS 0.90, Netscape RSS 0.91,
+Userland RSS 0.91, RSS 0.92, RSS 0.93, RSS 0.94, RSS 1.0, RSS 2.0,
+Atom 0.3, Atom 1.0 oraz CDF. Potrafi obsłużyć także kilka popularnych
+modułów rozszerzeń, w tym rozszerzenia Dublin Core oraz Apple iTunes.
 
 %prep
 %setup -q -n %{module}-%{version}
 
 %build
 %py3_build
-%{?with_tests:cd feedparser; PYTHONPATH=../build-3 %{__python3} feedparsertest.py; cd ..}
+
+%if %{with tests}
+%{__python3} tests/runtests.py
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -50,4 +57,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc LICENSE NEWS README.rst
 %{py3_sitescriptdir}/feedparser
-%{py3_sitescriptdir}/feedparser-*.egg-info
+%{py3_sitescriptdir}/feedparser-%{version}-py*.egg-info
