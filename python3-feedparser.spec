@@ -7,7 +7,7 @@ Summary:	Parse RSS and Atom feeds in Python
 Summary(pl.UTF-8):	Analiza źródeł RSS i Atom dla Pythona
 Name:		python3-%{module}
 Version:	6.0.10
-Release:	2
+Release:	3
 License:	BSD
 Group:		Libraries/Python
 Source0:	https://github.com/kurtmckee/feedparser/archive/%{version}.tar.gz
