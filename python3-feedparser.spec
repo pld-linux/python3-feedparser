@@ -6,12 +6,13 @@
 Summary:	Parse RSS and Atom feeds in Python
 Summary(pl.UTF-8):	Analiza źródeł RSS i Atom dla Pythona
 Name:		python3-%{module}
-Version:	6.0.10
-Release:	3
+Version:	6.0.11
+Release:	1
 License:	BSD
 Group:		Libraries/Python
 Source0:	https://github.com/kurtmckee/feedparser/archive/%{version}.tar.gz
-# Source0-md5:	d69e59156dfe7b64842befdc1c621a2d
+# Source0-md5:	bbb8814240ef30c930ad8ea8eeb8e80b
+Patch0:		re.patch
 URL:		https://github.com/kurtmckee/feedparser
 BuildRequires:	python3-modules >= 1:3.6
 BuildRequires:	python3-setuptools
@@ -37,6 +38,7 @@ modułów rozszerzeń, w tym rozszerzenia Dublin Core oraz Apple iTunes.
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch -P0 -p1
 
 %build
 %py3_build

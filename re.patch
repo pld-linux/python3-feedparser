@@ -1,0 +1,11 @@
+--- feedparser-6.0.11/feedparser/html.py~	2023-12-10 16:52:24.000000000 +0100
++++ feedparser-6.0.11/feedparser/html.py	2025-05-16 19:28:04.564388932 +0200
+@@ -149,7 +149,7 @@ class _BaseHTMLProcessor(sgmllib.SGMLPar
+         :rtype: None
+         """
+ 
+-        data = re.sub(r'<!((?!DOCTYPE|--|\[))', r'&lt;!\1', data, re.IGNORECASE)
++        data = re.sub(r'<!((?!DOCTYPE|--|\[))', r'&lt;!\1', data, flags=re.IGNORECASE)
+         data = re.sub(r'<([^<>\s]+?)\s*/>', self._shorttag_replace, data)
+         data = data.replace('&#39;', "'")
+         data = data.replace('&#34;', '"')
